@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Initialize jarallax on element
       jarallax(el, options);
-      alert("Jarallax initialized on " + el.className);
+      //   alert("Jarallax initialized on " + el.className);
     });
   } else {
     console.warn("Jarallax not loaded");
