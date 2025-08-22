@@ -3,6 +3,7 @@ import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/home/Hero.astro";
 import About from "../components/home/About.astro";
+import Description from "../components/home/Description.astro";
 import Feature from "../components/home/Feature.astro";
 import Services from "../components/home/Services.astro";
 import QualityWork from "../components/home/QualityWork.astro";
@@ -12,18 +13,21 @@ import Testimonial from "../components/home/Testimonial.astro";
 import TrustedPartners from "../components/home/TrustedPartners.astro";
 import BlogSec from "../components/home/BlogSec.astro";
 import Cta from "../components/home/Cta.astro";
+import Form from "../components/contact/Form.astro";
 ---
 
 <Layout>
   <Hero />
   <About />
-  <Feature />
+  <Description />
+  <!-- <Feature /> -->
   <Services />
   <QualityWork />
   <Projects />
   <Team />
-  <Testimonial />
+  <!-- <Testimonial /> -->
   <TrustedPartners />
   <BlogSec />
-  <Cta />
+  <Form />
+  <!-- <Cta /> -->
 </Layout>
