@@ -116,12 +116,16 @@
               <div class="main-header__logo">
                 <a href="/index">
                   <img
-                    src="assets/images/resources/logo-3.png"
+                    height="61"
+                    width="145"
+                    src="assets/images/resources/logoTemp.png"
                     alt=""
                     class="dark-logo"
                   />
                   <img
-                    src="assets/images/resources/logo-3.png"
+                    height="61"
+                    width="145"
+                    src="assets/images/resources/logoTemp.png"
                     alt=""
                     class="light-logo"
                   />
@@ -194,8 +198,10 @@
                         <a href="/about">About </a>
                       </li>
                       <li class="dropdown">
-                        Services
-                        <ul>
+                        <a href="#"
+                          >Services <span class=""></span></a
+                        >
+                        <ul class="submenu">
                           <li>
                             <a href="/commercial_painting"
                               >Commercial Painting</a
@@ -270,8 +276,11 @@
                   <div class="footer-widget__logo">
                     <a href="/index"
                       ><img
-                        src="assets/images/resources/logo-3.png"
+                        height="61"
+                        width="145"
+                        src="assets/images/resources/logoTemp.png"
                         alt=""
+                        class="light-logo"
                       /></a
                     >
                   </div>
@@ -538,5 +547,17 @@
       is:inline
       src="/assets/vendors/toolbar/js/jQuery.style.switcher.min.js"></script>
     <script is:inline src="/assets/vendors/toolbar/js/toolbar.js"></script>
+    <script type="script">
+      $(document).on(
+        "click",
+        ".mobile-nav__container .dropdown > a",
+        function (e) {
+          e.preventDefault();
+          let parent = $(this).parent();
+          parent.toggleClass("open");
+          parent.find(".submenu").slideToggle(300);
+        },
+      );
+    </script>
   </body>
 </html>
