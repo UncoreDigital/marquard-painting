@@ -1,78 +1,47 @@
 <!--Brand One Start-->
 <section class="brand-one">
+  <style>
+    /* Lightweight horizontal sliding brands strip */
+    .brand-slider { overflow: hidden; padding: 10px 0; }
+    /* easy tweak for animation speed */
+    :root { --brand-scroll-duration: 20s; }
+    .brand-slider-track { display: flex; gap: 40px; align-items: center; animation: scroll-left var(--brand-scroll-duration) linear infinite; }
+    .brand-slider-track:hover { animation-play-state: paused; }
+    .brand-slider-track .item { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+    .brand-slider-track img { max-width: 160px; height: auto; display: block; opacity: 0.95; filter: grayscale(10%); transition: transform .3s, filter .3s; }
+    .brand-slider-track img:hover { transform: scale(1.05); filter: grayscale(0); }
+    @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @media (max-width: 768px) { .brand-slider-track img { max-width: 120px; } .brand-slider-track { gap: 20px; } }
+  </style>
   <div class="container">
     <div class="brand-one__inner">
       <div class="row">
         <div class="col-xl-3">
-          <div class="brand-one__title">
-            <h2>Trusted by Popular Brands</h2>
+          <div class="brand-one__title" style="display:flex; align-items:center; height:100%;">
+            <h2 style="margin:0;">Trusted by Popular Brands</h2>
           </div>
         </div>
         <div class="col-xl-9">
           <div class="brand-one__main-content">
-            <div
-              class="brand-one__one thm-owl__carousel owl-theme owl-carousel"
-              data-owl-options='{
-                                    "loop": true,
-                                    "autoplay": true,
-                                    "margin": 100,
-                                    "nav": false,
-                                    "dots": false,
-                                    "smartSpeed": 500,
-                                    "autoplayTimeout": 10000,
-                                    "responsive": {
-                                        "0": {
-                                            "margin": 30,
-                                            "items": 2
-                                        },
-                                        "575": {
-                                            "margin": 50,
-                                            "items": 3
-                                        },
-                                        "768": {
-                                            "margin": 50,
-                                            "items": 4
-                                        },
-                                        "992": {
-                                            "margin": 50,
-                                            "items": 5
-                                        },
-                                        "1200": {
-                                            "margin": 100,
-                                            "items": 5
-                                        }
-                                    }
-                                    }'
-            >
-              <div class="item">
-                <img src="/assets/images/brand/brand1.png" alt="" />
-              </div>
-              <!-- /.item -->
-              <div class="item">
-                <img src="/assets/images/brand/brand2.png" alt="" />
-              </div>
-              <!-- /.item -->
-              <div class="item">
-                <img src="/assets/images/brand/brand3.png" alt="" />
-              </div>
-              <!-- /.item -->
-              <div class="item">
-                <img src="/assets/images/brand/brand4.png" alt="" />
-              </div>
-              <!-- /.item -->
-              <div class="item">
-                <img src="/assets/images/brand/brand5.png" alt="" />
-              </div>
-              <!-- /.item -->
-              <div class="item">
-                <img src="/assets/images/brand/brand6.png" alt="" />
-              </div>
-              <!-- /.item -->
-              <div class="item">
-                <img src="/assets/images/brand/brand7.png" alt="" />
-              </div>
-              <div class="item">
-                <img src="/assets/images/brand/cbre.png" alt="" />
+            <div class="brand-slider" aria-hidden="false">
+              <div class="brand-slider-track" role="list">
+                <div class="item"><img src="assets/images/brand/brand1.png" alt="brand1" /></div>
+                
+                
+                <div class="item"><img src="assets/images/brand/brand4.png" alt="brand4" /></div>
+                
+                <div class="item"><img src="assets/images/brand/brand6.png" alt="brand6" /></div>
+                <div class="item"><img src="assets/images/brand/brand7.png" alt="brand7" /></div>
+                <div class="item"><img src="assets/images/brand/cbre.png" alt="cbre" /></div>
+                <!-- duplicated for seamless infinite scroll -->
+                <div class="item"><img src="assets/images/brand/brand1.png" alt="brand1" /></div>
+                
+                
+                <div class="item"><img src="assets/images/brand/brand4.png" alt="brand4" /></div>
+                
+                <div class="item"><img src="assets/images/brand/brand6.png" alt="brand6" /></div>
+                <div class="item"><img src="assets/images/brand/brand7.png" alt="brand7" /></div>
+                <div class="item"><img src="assets/images/brand/cbre.png" alt="cbre" /></div>
               </div>
             </div>
           </div>
