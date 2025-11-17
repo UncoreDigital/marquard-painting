@@ -1,0 +1,25 @@
+/* Marquard Premium Highlight Section */
+.marquard-highlight-section {
+  margin-bottom: 30px;
+}
+
+.marquard-highlight-section .project-details__challenge-title {
+  margin-bottom: 20px;
+}
+
+.marquard-highlight-section .project-details__text-2 {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .marquard-highlight-section {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .marquard-highlight-section {
+    margin-top: 30px;
+  }
+}
