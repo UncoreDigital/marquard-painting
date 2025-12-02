@@ -20,10 +20,21 @@ import BreadCrum from "../components/gallery/BreadCrum.astro";
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
     }
 
-    /* Optional: If you want to use the button's background/text hover animation, 
-       you'd need to inspect the CSS for .thm-btn:hover and replicate it here. 
-       The lift/shadow is the most common button animation for non-text elements.
-    */
+    /* Gallery performance optimizations */
+    .gallery-card {
+        contain: layout style paint;
+        background: #f5f5f5;
+    }
+    
+    .gallery-card img {
+        background: #f0f0f0;
+        min-height: 250px;
+    }
+    
+    /* Preload critical images */
+    .gallery-card:nth-child(-n+6) img {
+        content-visibility: auto;
+    }
 </style>
 
 <Layout>
@@ -45,154 +56,191 @@ import BreadCrum from "../components/gallery/BreadCrum.astro";
         <div class="row justify-content-center">
             
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_1_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery1.jpg" alt="Art Gallery Image 1" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                    <img src="assets/images/resources/gallery1.jpg" alt="Art Gallery Image 1" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="eager" fetchpriority="high" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_2_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery2.jpg" alt="Art Gallery Image 2" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                    <img src="assets/images/resources/gallery2.jpg" alt="Art Gallery Image 2" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="eager" fetchpriority="high" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_3_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-03.jpg" alt="Art Gallery Image 3" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                    <img src="assets/images/resources/gallery-image-03.jpg" alt="Art Gallery Image 3" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="eager" fetchpriority="high" />
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_4_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-04.jpg" alt="Art Gallery Image 4" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-04.jpg" alt="Art Gallery Image 4" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_5_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-05.jpg" alt="Art Gallery Image 5" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-05.jpg" alt="Art Gallery Image 5" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_6_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/20201023_090217.jpg" alt="Art Gallery Image 6" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/20201023_090217.jpg" alt="Art Gallery Image 6" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_7_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-07.jpg" alt="Art Gallery Image 7" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-07.jpg" alt="Art Gallery Image 7" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_8_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-08.jpg" alt="Art Gallery Image 8" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-08.jpg" alt="Art Gallery Image 8" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_9_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-09.jpg" alt="Art Gallery Image 9" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-09.jpg" alt="Art Gallery Image 9" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_10_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-10.jpg" alt="Art Gallery Image 10" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-10.jpg" alt="Art Gallery Image 10" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_11_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-11.jpg" alt="Art Gallery Image 11" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-11.jpg" alt="Art Gallery Image 11" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
                 <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_12_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-12.jpg" alt="Art Gallery Image 12" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
+                    <img src="assets/images/resources/gallery-image-12.jpg" alt="Art Gallery Image 12" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                 </div>
             </div>
 
+            <!-- Additional images hidden by default for better performance -->
+            <!-- Uncomment below to show more images -->
+            <!--
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
                     <a href="URL_FOR_IMAGE_13_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-13.jpg" alt="Art Gallery Image 13" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                        <img src="assets/images/resources/gallery-image-13.jpg" alt="Art Gallery Image 13" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
                     <a href="URL_FOR_IMAGE_14_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-14.jpg" alt="Art Gallery Image 14" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                        <img src="assets/images/resources/gallery-image-14.jpg" alt="Art Gallery Image 14" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
                     <a href="URL_FOR_IMAGE_15_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-15.jpg" alt="Art Gallery Image 15" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                        <img src="assets/images/resources/gallery-image-15.jpg" alt="Art Gallery Image 15" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
                     </a>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_16_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-16.jpg" alt="Art Gallery Image 16" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_17_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-17.jpg" alt="Art Gallery Image 17" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_18_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/20200917_182334.jpg" alt="Art Gallery Image 18" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_19_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/gallery-image-19.jpg" alt="Art Gallery Image 19" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
-                <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <a href="URL_FOR_IMAGE_20_DETAIL" style="display: block;">
-                        <img src="assets/images/resources/img6.png" alt="Art Gallery Image 20" style="width:100%; height:280px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
-                    </a>
-                </div>
-            </div>
+            -->
             
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="row">
+            <div class="col-xl-12 text-center" style="margin-top: 10px; margin-bottom: 40px;">
+                <button onclick="loadMoreImages()" class="thm-btn gallery__load-more-btn" id="loadMoreBtn">View Complete Portfolio</button>
+            </div>
+        </div>
+        
+        <!-- Hidden Images Section -->
+        <div id="hiddenImages" style="display: none; margin-top: 30px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                            <img src="assets/images/resources/gallery-image-13.jpg" alt="Art Gallery Image 13" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                            <img src="assets/images/resources/gallery-image-14.jpg" alt="Art Gallery Image 14" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                            <img src="assets/images/resources/gallery-image-15.jpg" alt="Art Gallery Image 15" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                            <img src="assets/images/resources/gallery-image-16.jpg" alt="Art Gallery Image 16" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                            <img src="assets/images/resources/gallery-image-17.jpg" alt="Art Gallery Image 17" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                            <img src="assets/images/resources/gallery-image-19.jpg" alt="Art Gallery Image 18" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                        <a href="#" style="display: block;">
+                            <img src="assets/images/resources/20200917_182334.jpg" alt="Art Gallery Image 19" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6" style="margin-bottom:30px;">
+                    <div class="gallery-card" style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5;">
+                            <img src="assets/images/resources/img2.png" alt="Art Gallery Image 20" style="width:100%; height:250px; display:block; object-fit:cover; border-radius:12px 12px 0 0;" loading="lazy" decoding="async" />
+            </div>
         </div>
         
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.loadMoreImages = function() {
+        const hiddenImages = document.getElementById('hiddenImages');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const buttonContainer = loadMoreBtn.parentElement.parentElement;
+        
+        console.log('Button clicked!'); // Debug log
+        console.log('Current display:', hiddenImages.style.display); // Debug log
+        
+        if (hiddenImages.style.display === 'none' || hiddenImages.style.display === '') {
+            hiddenImages.style.display = 'block';
+            buttonContainer.style.display = 'none';
+            
+            // Smooth scroll to the new images
+            setTimeout(() => {
+                hiddenImages.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 300);
+        } else {
+            hiddenImages.style.display = 'none';
+            buttonContainer.style.display = 'block';
+            
+            // Scroll back up to the load more button
+            setTimeout(() => {
+                loadMoreBtn.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }, 300);
+        }
+    };
+});
+</script>
 </Layout>
